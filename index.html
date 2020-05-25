@@ -4,7 +4,21 @@
     </head>
     <body>
         <div id="app">
-            <!-- Manipulando a DOM
+
+            <!-- Alterando estilos 
+                <div class="box"></div> 
+            -->
+
+            <!-- Lidando com elementos
+                <input id="nome" /> 
+            -->
+
+            <!-- Trabalhando com a DOM
+                <input type="text" name="nome" class="nome" />
+                <button class="botao">Adicionar</button> 
+            -->
+
+            <!-- Eventos inline
                 <button onclick="mostraAlerta()">Me pressione</button>
                 <button onmouseover="mouseOver()" onmouseout="mouseOut()">Mouse Over/Out</button>
                 <input onkeypress="mostraAlerta()"/> 
@@ -13,183 +27,239 @@
 
         <script>
 
+           
+
             /* 
 
-            // Manipulando a DOM
+                // ******* MANIPULANDO A DOM ****** // 
 
-                function mostraAlerta(){
-                    alert('Botão foi clicado');
-                }
+                    // Eventos inline
 
-                function mouseOver(){
-                    console.log("Mouse em cima!");
-                }
-
-                function mouseOut(){
-                    console.log("Mouse em saio de cima!");
-                }
-
-                // INTERVALOS E TIMEOUT
-
-                function exibeAlgo(){
-                    console.log('Hello World');
-                }
-
-                // Se colocar exibeAlgo() ao invez de exibeAlgo ele executa uma vez a função
-                //setInterval(exibeAlgo, 5000); //Fica executando a função a cada 5s
-
-                setTimeout(exibeAlgo, 5000); //Execulta a função após 5s
-
-                // ESTRUTURAS DE REPETIÇÃO
-                // FOR, WHILE
-
-                // Usar sempre que souber a quantidade de vezes a ser executado
-                for (var i = 0; i <=100; i++) {
-                    console.log(i);               
-                }
-
-                // Se não souber o tamanho da execução
-                j = 456464564;
-                while( j > 50){
-                    console.log(j);
-                    j /= 5;
-                }
-
-
-                // CONDIÇÃO TERNARIA
-
-                var sexo = 'M';
-                if(sexo === 'M'){
-                    return 'Masculino';
-                }else{
-                    return 'Feminino';
-                }
-
-                //Aplicando condição ternaria
-                var returno = (sexo === 'M') ? 'Masculino' : 'Feminino';
-                console.log(returno);
-
-                // OPERADORES LÓGICOS
-                // AND, OR, NOT
-
-                var sexo = 'M', idade = 23;
-
-                // AND
-                if(sexo === 'M' && idade >= 18){
-                    console.log('OK');
-                }
-
-                // OR
-                if(sexo === 'M' || idade >= 18){
-                    console.log('OK');
-                }
-
-                // NOT
-                if (sexo != 'F'){
-                    console.log('OK');
-                }
-
-                //Atribuindo variáveis
-                var sexo = 'M';
-
-                // var masculino;
-                // if (sexo === 'M'){
-                //     masculino = true;
-                // }else{
-                //     masculino = false;
-                // }
-
-                var masculino = sexo === 'M'; // SIMPLIFICANDO
-
-                console.log(masculino);
-
-
-                // CONDICIONAIS
-
-                // function retornaSexo(sexo){
-                //     // M, F
-                //     // Masculino, Feminino
-
-                //     if(sexo === 'M'){
-                //         return 'Masculino';
-                //     }else if (sexo === 'F'){
-                //         return 'Feminino';
-                //     } else {
-                //         return 'Outro';
-                //     }
-                // }
-
-                function retornaSexo(sexo){
-                    switch (sexo) {
-                        case 'M':
-                            return 'Masculino';
-                        case 'F':
-                            return 'Feminino';
-                        default:
-                            return 'Outro';
+                    function mostraAlerta(){
+                        alert('Botão foi clicado');
                     }
-                }
 
-                var resultado = retornaSexo('M');
-                console.log(resultado);
-                
-                // FUNÇÕES
+                    function mouseOver(){
+                        console.log("Mouse em cima!");
+                    }
 
-                function soma(numero1, numero2){
-                    var resultado = numero1 + numero2;
-                    return resultado;
-                }
+                    function mouseOut(){
+                        console.log("Mouse em saio de cima!");
+                    }
 
-                var resultado = soma(1, 2);
-                console.log(resultado);
+                    // Trabalhando com a DOM
+
+                    // var inputElement = document.getElementById("nome");
+                    // var inputElement = document.getElementsByTagName('input')[0];
+                    // var inputElement = document.getElementsByClassName('nome')[0];
+
+                    // var inputElement = document.querySelector("body div#app input");
+                    // var inputElement = document.querySelectorAll("input");
+                    // var inputElement = document.querySelector("input[name=nome]");
+
+                    var inputElement = document.querySelector("input[name=nome]");
+                    var btnElement = document.querySelector("button.botao");
+                    // console.log(inputElement);
+                    // console.log(btnElement);
+                    
+                    btnElement.onclick = function(){
+                        var text = inputElement.value;
+                        alert(text);
+                    }
+
+                    // Lidando com elementos
+
+                    var linkElement = document.createElement('a');
+                    linkElement.setAttribute('href', 'http://rocketseat.com.br');
+                    linkElement.setAttribute('title', 'Site da Rocketseat');
+
+                    var textElement = document.createTextNode('Acessar site da Rocketseat');
+                    linkElement.appendChild(textElement);
+
+                    var containerElement = document.querySelector('#app');
+                    containerElement.appendChild(linkElement);
+
+                    var inputElement = document.querySelector("#nome");
+                    containerElement.removeChild(inputElement);
+
+                    // Alterando estilos
+
+                    var boxElement = document.querySelector('.box');
+                    boxElement.style.width = 100;
+                    boxElement.style.height = 100;
+                    boxElement.style.backgroundColor = '#f00';
+
+                // ******* FIM DA MANIPULAÇÃO DA DOM ****** // 
 
 
-                // OPERAÇÕES ARITIMÉTICAS
 
-                var x = 10, y = 5;
-                console.log("Variáveis: ", x, y);
+                // ******* INTRODUÇÃO ****** // 
 
-                var soma = x + y; // Somar
-                console.log("Soma: ", soma);
+                    // VARIAVEIS
 
-                var subtrair = x - y; // Subtrair
-                console.log("Subtrair: ", subtrair);
+                    var nome = "Júlio";
+                    var idade = 28;
+                    var peso = 80.5;
+                    var humano = true;
 
-                var multiplicar = x * y; // Multiplicar
-                console.log("Multiplicar: ", multiplicar);
+                    var alunos = ['Diego', 'Gabriel', 'Lucas'];
 
-                var dividir = x / y; // Dividir
-                console.log("Dividir: ", dividir);
+                    var aluno = {
+                        nome: "Júlio",
+                        idade: 23,
+                        peso: 80.5,
+                        humano: true
+                    }
 
-                // Incrementar
-                // x = x + 3;
-                x += y; // Somar
-                x -= y; // Subtrair
-                x *= y; // Multiplicar
-                x /= y; // Dividir
-
-                console.log("Incrementar resultado: ", x);
+                    console.log(alunos[1]);
+                    console.log(aluno.nome);
 
 
-                // VARIAVEIS
+                    // OPERAÇÕES ARITIMÉTICAS
 
-                var nome = "Júlio";
-                var idade = 28;
-                var peso = 80.5;
-                var humano = true;
+                    var x = 10, y = 5;
+                    console.log("Variáveis: ", x, y);
 
-                var alunos = ['Diego', 'Gabriel', 'Lucas'];
+                    var soma = x + y; // Somar
+                    console.log("Soma: ", soma);
 
-                var aluno = {
-                    nome: "Júlio",
-                    idade: 23,
-                    peso: 80.5,
-                    humano: true
-                }
+                    var subtrair = x - y; // Subtrair
+                    console.log("Subtrair: ", subtrair);
 
-                console.log(alunos[1]);
-                console.log(aluno.nome);
+                    var multiplicar = x * y; // Multiplicar
+                    console.log("Multiplicar: ", multiplicar);
 
+                    var dividir = x / y; // Dividir
+                    console.log("Dividir: ", dividir);
+
+                    // Incrementar
+                    // x = x + 3;
+                    x += y; // Somar
+                    x -= y; // Subtrair
+                    x *= y; // Multiplicar
+                    x /= y; // Dividir
+
+                    console.log("Incrementar resultado: ", x);
+
+
+                    // FUNÇÕES
+
+                    function soma(numero1, numero2){
+                        var resultado = numero1 + numero2;
+                        return resultado;
+                    }
+
+                    var resultado = soma(1, 2);
+                    console.log(resultado);
+
+
+                    // CONDICIONAIS
+
+                    // function retornaSexo(sexo){
+                    //     // M, F
+                    //     // Masculino, Feminino
+
+                    //     if(sexo === 'M'){
+                    //         return 'Masculino';
+                    //     }else if (sexo === 'F'){
+                    //         return 'Feminino';
+                    //     } else {
+                    //         return 'Outro';
+                    //     }
+                    // }
+
+                    function retornaSexo(sexo){
+                        switch (sexo) {
+                            case 'M':
+                                return 'Masculino';
+                            case 'F':
+                                return 'Feminino';
+                            default:
+                                return 'Outro';
+                        }
+                    }
+
+                    var resultado = retornaSexo('M');
+                    console.log(resultado);
+                    
+
+                    // OPERADORES LÓGICOS
+                    // AND, OR, NOT
+
+                    var sexo = 'M', idade = 23;
+
+                    // AND
+                    if(sexo === 'M' && idade >= 18){
+                        console.log('OK');
+                    }
+
+                    // OR
+                    if(sexo === 'M' || idade >= 18){
+                        console.log('OK');
+                    }
+
+                    // NOT
+                    if (sexo != 'F'){
+                        console.log('OK');
+                    }
+
+                    //Atribuindo variáveis
+                    var sexo = 'M';
+
+                    // var masculino;
+                    // if (sexo === 'M'){
+                    //     masculino = true;
+                    // }else{
+                    //     masculino = false;
+                    // }
+
+                    var masculino = sexo === 'M'; // SIMPLIFICANDO
+
+                    console.log(masculino);
+
+
+                    // CONDIÇÃO TERNARIA
+
+                    var sexo = 'M';
+                    if(sexo === 'M'){
+                        return 'Masculino';
+                    }else{
+                        return 'Feminino';
+                    }
+
+                    //Aplicando condição ternaria
+                    var returno = (sexo === 'M') ? 'Masculino' : 'Feminino';
+                    console.log(returno);
+
+                    
+                    // ESTRUTURAS DE REPETIÇÃO
+                    // FOR, WHILE
+
+                    // Usar sempre que souber a quantidade de vezes a ser executado
+                    for (var i = 0; i <=100; i++) {
+                        console.log(i);               
+                    }
+
+                    // Se não souber o tamanho da execução
+                    j = 456464564;
+                    while( j > 50){
+                        console.log(j);
+                        j /= 5;
+                    }
+
+
+                    // INTERVALOS E TIMEOUT
+
+                    function exibeAlgo(){
+                        console.log('Hello World');
+                    }
+
+                    // Se colocar exibeAlgo() ao invez de exibeAlgo ele executa uma vez a função
+                    //setInterval(exibeAlgo, 5000); //Fica executando a função a cada 5s
+
+                    setTimeout(exibeAlgo, 5000); //Execulta a função após 5s
+
+                // ******* FIM DA INTRODUÇÃO ****** // 
             */
         </script>
     </body>
