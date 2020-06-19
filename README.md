@@ -6,6 +6,9 @@ Projeto do Curso de JavaScript da [Rocketseat](https://rocketseat.com.br/ "Rocke
 - JavaScript
 - [Axios](https://github.com/axios/axios)
 
+## :memo: Licença
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
 ---
 
 <h4 align="center">
